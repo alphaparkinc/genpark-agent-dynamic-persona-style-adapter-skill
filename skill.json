@@ -1,0 +1,61 @@
+{
+  "name": "genpark-agent-dynamic-persona-style-adapter-skill",
+  "version": "1.0.0",
+  "description": "Dynamic Agent Persona & Contextual Communication Style Adapter (inspired by Personal AI Copilots). Adapts communication formality, brevity, tone, and technical depth based on channel context, user cognitive load, and sentiment feedback.",
+  "tools": [
+    {
+      "name": "adapt_agent_communication_style",
+      "description": "Adapt communication persona: adjust brevity, formality, and technical depth according to channel type, user cognitive load, and feedback sentiment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "adapt_message_style",
+              "classify_channel_constraints",
+              "get_persona_profiles"
+            ],
+            "description": "Style adapter action."
+          },
+          "raw_message": {
+            "type": "string",
+            "description": "Base message text to adapt."
+          },
+          "channel": {
+            "type": "string",
+            "enum": [
+              "SMART_GLASSES_AUDIO",
+              "MOBILE_PUSH",
+              "SLACK_CHAT",
+              "EXECUTIVE_EMAIL"
+            ],
+            "description": "Delivery channel."
+          },
+          "user_cognitive_load": {
+            "type": "string",
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ],
+            "description": "User current cognitive bandwidth."
+          },
+          "target_persona": {
+            "type": "string",
+            "enum": [
+              "EXECUTIVE_CONCISE",
+              "FRIENDLY_COPILOT",
+              "TECHNICAL_DETAILED",
+              "SENSORY_WHISPER"
+            ],
+            "description": "Target style profile."
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  ]
+}
